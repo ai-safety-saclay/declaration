@@ -155,9 +155,10 @@ html { scroll-behavior: smooth; }
 
 .logos {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem 2rem;
   margin: 2rem 0 0;
 }
 .logos img { height: 44px; width: auto; }
