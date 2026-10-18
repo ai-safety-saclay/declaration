@@ -1,0 +1,26 @@
+[
+  {
+    "firstname": "Marie",
+    "name": "Dupont",
+    "role": "Professeure des universités",
+    "institution": "Université Paris-Saclay",
+    "comment": "La recherche publique doit être au cœur de l'évaluation des modèles.",
+    "featured": false
+  },
+  {
+    "firstname": "Karim",
+    "name": "Benali",
+    "role": "Doctorant en apprentissage automatique",
+    "institution": "Télécom Paris",
+    "comment": "",
+    "featured": false
+  },
+  {
+    "firstname": "Claire",
+    "name": "Martin",
+    "role": "Directrice de recherche",
+    "institution": "Inria Saclay",
+    "comment": "Des lignes rouges claires, maintenant.",
+    "featured": true
+  }
+]

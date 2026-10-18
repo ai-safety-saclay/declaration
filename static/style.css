@@ -1,0 +1,165 @@
+/* Layout after pacingthefrontier.com, in black and white. */
+:root {
+  --ink: #111;
+  --accent: #000;
+  --accent-soft: #999;
+  --hairline: #e6e6e6;
+  --muted: rgb(0 0 0 / 0.55);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font: 16px/1.6 Inter, Arial, Helvetica, sans-serif;
+}
+
+a { color: var(--accent); }
+
+h1, h2 { font-family: "Source Serif 4", Georgia, serif; }
+
+/* Header */
+header {
+  text-align: center;
+  padding: 4rem 1.5rem 0;
+}
+
+/* Two columns: statement left, signatories right; stacked on mobile. */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  display: grid;
+  gap: 5rem;
+}
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: minmax(0, 9.6fr) minmax(0, 5fr);
+    grid-template-areas: "statement signatories";
+    gap: 4.5rem;
+    align-items: start;
+  }
+  .statement { grid-area: statement; }
+  .signatories { grid-area: signatories; }
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 1.75rem 1.75rem;
+}
+
+/* Card: white sheet with a hairline inner frame and a soft shadow. */
+.card {
+  padding: 0.5rem;
+  background: #fff;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 0.1);
+}
+.card > * { margin-top: 0; }
+.statement .card {
+  border: 1px solid var(--hairline);
+  padding: 2.5rem 3rem 3.5rem;
+  outline: 0.5rem solid #fff;
+  background: #f7f7f7;
+}
+
+/* Statement */
+.statement h1 { font-size: 2rem; font-weight: 400; line-height: 1.2; margin-bottom: 2rem; }
+.statement ol { padding-left: 1.25rem; }
+.statement ol li { margin-bottom: 0.75rem; }
+.footnote { font-size: 0.8rem; color: var(--muted); word-break: break-word; }
+.footnote hr { border: 0; border-top: 1px solid var(--hairline); }
+
+.sign { margin-top: 2rem; }
+.sign > * { margin: 1rem; }
+.sign h2 { margin-left: 0; font-size: 1.5rem; }
+.placeholder {
+  border: 1px dashed var(--accent-soft);
+  color: var(--muted);
+  padding: 2rem;
+  text-align: center;
+  font-family: ui-monospace, monospace;
+  font-size: 0.9rem;
+}
+
+/* Signatories */
+.count { color: var(--accent); font-weight: 600; }
+.signatories .card ul {
+  list-style: none;
+  margin: 0;
+  padding: 3rem 1rem 3rem 1.5rem;
+  border: 1px solid var(--hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.signatory p { margin: 0; }
+.signatory .name { font-weight: 500; }
+.signatory .role { font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
+.signatory blockquote {
+  margin: 0.5rem 0 0;
+  border-left: 2px solid var(--accent-soft);
+  padding: 0.4rem 0.75rem;
+  background: #f7f7f7;
+  font-size: 0.875rem;
+}
+.updated { color: var(--muted); font-size: 0.8rem; margin-left: 1.75rem; }
+
+@media (max-width: 640px) {
+  .statement .card { padding: 1.5rem 1rem 2rem; }
+  h2 { font-size: 2rem; margin-left: 1rem; }
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin: 0 auto 1rem;
+  max-width: 28ch;
+  text-wrap: balance;
+}
+
+/* Footnote references in the text */
+.footnote-ref {
+  display: inline-block;
+  min-width: 1.4em;
+  padding: 0 0.3em;
+  margin-left: 0.15em;
+  border-radius: 0.7em;
+  background: rgb(0 0 0 / 0.07);
+  color: var(--accent);
+  font-size: 0.91em;
+  font-weight: 600;
+  line-height: 1.4em;
+  text-align: center;
+  text-decoration: none;
+}
+.footnote-ref:hover { background: #000; color: #fff; }
+sup { line-height: 0; }
+
+/* Flash the source (or the reference, on the way back) that was just jumped to. */
+@keyframes flash {
+  from { background: rgb(0 0 0 / 0.15); }
+  to   { background: transparent; }
+}
+.footnote li:target { animation: flash 5s ease-in; border-radius: 4px; }
+sup:target .footnote-ref { animation: flash 5s ease-in; }
+.footnote li { scroll-margin-top: 40vh; }
+sup { scroll-margin-top: 40vh; }
+html { scroll-behavior: smooth; }
+
+.contact { font-size: 0.9rem; margin: 1rem 0 0 1.75rem; }
+
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0 0;
+}
+.logos img { height: 44px; width: auto; }
+/* The PIAF logo has built-in padding; compensate so it reads at the same size. */
+.logos img.padded { height: 64px; }
