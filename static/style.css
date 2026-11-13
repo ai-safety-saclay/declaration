@@ -72,6 +72,16 @@ h2 {
 .statement ol li { margin-bottom: 0.75rem; }
 .footnote { font-size: 0.8rem; color: var(--muted); word-break: break-word; }
 .footnote hr { border: 0; border-top: 1px solid var(--hairline); }
+.sign-button {
+  display: inline-block;
+  margin: 1rem 0 2rem;
+  padding: 0.8rem 1.15rem;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sign-button:hover { background: #333; color: #fff; }
 
 .sign { margin-top: 2rem; }
 .sign > * { margin: 1rem; }
@@ -151,7 +161,59 @@ sup:target .footnote-ref { animation: flash 5s ease-in; }
 sup { scroll-margin-top: 40vh; }
 html { scroll-behavior: smooth; }
 
-.contact { font-size: 0.9rem; margin: 1rem 0 0 1.75rem; }
+.contact-asks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1rem;
+  margin: 2rem 0 0;
+  padding: 1.5rem;
+  border: 2px solid #000;
+  background: #fff;
+  text-align: left;
+}
+.contact-asks .asks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+.contact-asks .ask {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-asks .ask p {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.contact-asks .contact-link {
+  display: inline-block;
+  font-size: 1.35rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #000;
+  color: #000;
+  background: #fff;
+  text-decoration: none;
+}
+.contact-asks .contact-link:hover {
+  background: #000;
+  color: #fff;
+}
+
+.contact-page { display: block; max-width: 1000px; padding-top: 3rem; }
+.contacts h2 { margin-left: 0; }
+.contact-intro { max-width: 72ch; margin: 0 0 1rem; }
+.contact-email { margin-bottom: 2.5rem; }
+.contacts h2.contact-join-title { margin: 2rem 0 1.5rem; }
+.contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+.contact-card { min-height: 230px; padding: 2rem; border: 1px solid var(--hairline); background: #f7f7f7; box-shadow: 0 2px 2px rgb(0 0 0 / 0.1); color: var(--ink); text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; text-align: center; font-weight: 500; }
+.contact-card:hover { background: #eee; }
+.contact-card img { width: auto; max-width: 150px; height: 80px; object-fit: contain; }
+.site-footer { text-align: center; padding: 0 1rem 3rem; }
 
 .logos {
   display: flex;
@@ -164,6 +226,7 @@ html { scroll-behavior: smooth; }
 .logos img { height: 44px; width: auto; }
 /* The PIAF logo has built-in padding; compensate so it reads at the same size. */
 .logos img.padded { height: 64px; }
+.logos img { height: 44px; }
 
 /* Work-in-progress banner; remove before launch. */
 .wip {
