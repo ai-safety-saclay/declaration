@@ -1,0 +1,42 @@
+  <main>
+    <section class="statement">
+      <h2>{{t.our_request}}</h2>
+      <div class="card">
+        {{declaration}}
+      </div>
+    </section>
+
+    <section class="signatories" id="signataires">
+      <h2>{{t.signatories}}</h2>
+      <div class="logos sign-logo">
+        <img class="padded" src="{{root}}logos/piaf.png" alt="PIAF" title="PIAF (Paris-Saclay)">
+        <img class="padded" src="{{root}}logos/logo-tuxae.png" alt="Tuxae" title="Tuxae (ENSAE)">
+        <img class="padded" src="{{root}}logos/logo-telecom-ia.png" alt="Telecom IA" title="Telecom IA (Telecom Paris)">
+        <img class="padded" src="{{root}}logos/logo-automatants.png" alt="Automatants" title="Automatants (Centrale Supelec)">
+        <img class="padded" src="{{root}}logos/logo-data-ensta.png" alt="Data" title="Data (Ensta Paris)">
+      </div>
+      <div class="card">
+        <ul class="preview">
+          {{signatories}}
+        </ul>
+      </div>
+      <a class="all-signatories" href="{{href_signatories}}">{{t.see_all}} ({{count}})</a>
+      <p class="updated">{{t.updated}} {{updated}}</p>
+      <div class="card sign" id="signature">
+        <h2>{{t.sign}}</h2>
+        <div class="placeholder">[Widget de signature — non implémenté]</div>
+        <p class="privacy-note">{{t.email_not_published}} <a href="{{href_privacy}}">{{t.privacy}}</a></p>
+      </div>
+      <div class="contact-asks">
+        <div class="asks">
+          <div class="ask">
+            <p>{{t.ask_organisation}}</p>
+          </div>
+          <div class="ask">
+            <p>{{t.ask_join}}</p>
+          </div>
+        </div>
+        <a href="{{href_contact}}" class="contact-link">{{t.contact_us_link}}</a>
+      </div>
+    </section>
+  </main>

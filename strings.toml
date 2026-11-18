@@ -1,0 +1,58 @@
+# Interface text, one table per language. Values may contain HTML and
+# {{placeholders}} (root, href_*, …) filled in by build.py.
+# Long texts live in Markdown files instead: DECLARATION[.en].md,
+# CONFIDENTIALITE[.en].md.
+
+[fr]
+# Meta description (search results, link previews). ~160 characters are shown.
+description = "Appel de chercheurs, ingénieurs, enseignants et étudiants des écoles et universités du plateau de Saclay au gouvernement français pour encadrer l’IA de frontière : lignes rouges et régulation des modèles d’IA les plus avancés, recherche en sûreté de l’IA de pointe en France et en Europe."
+# Proca widget path: https://widget.proca.app/d/<widget>
+widget = "ai_piaf_2026/fr"
+date_format = "%d/%m/%Y %H:%M UTC"
+quote_open = "« "
+quote_close = " »"
+wip = "<strong>Site en construction</strong> — version de travail. Le texte est provisoire et les signataires affichés sont fictifs."
+back = "← Retour à la déclaration"
+our_request = "Notre demande"
+signatories = "Signataires"
+see_all = "→ Voir tous les signataires"
+updated = "Mis à jour le"
+sign = "Signer l'appel"
+email_not_published = "L'adresse e-mail n'est pas publiée."
+privacy = "Politique de confidentialité"
+ask_organisation = "Vous souhaitez <strong>signer en tant qu'association</strong> ?"
+ask_join = "Vous souhaitez <strong>rejoindre la communauté</strong> ?"
+contact_us_link = "→ Nous contacter"
+comment = "Commentaire"
+contact_title = "Nous contacter"
+contact_intro = "Cette lettre ouverte est un effort commun de la communauté française de la sécurité de l'IA, coordonnée par l'association Pour une Intelligence Artificielle Fiable (PIAF)."
+contact_email = "Vous pouvez nous contacter à"
+contact_organisations = "Les associations souhaitant signer l'appel peuvent renvoyer ce <a href=\"{{root}}downloads/signature-association.pdf\" download>formulaire de signature</a> complété à la même adresse."
+join_title = "Rejoindre"
+join_whatsapp = "Rejoindre le groupe WhatsApp"
+
+[en]
+description = "Call from researchers, engineers, teachers and students of Paris-Saclay’s schools and universities urging the French government to regulate frontier AI: red lines, oversight of the most advanced AI models, and research on the safety of cutting-edge AI in France and Europe."
+widget = "ai_piaf_2026/piaf/en"
+date_format = "%Y-%m-%d %H:%M UTC"
+quote_open = "“"
+quote_close = "”"
+wip = "<strong>Work in progress</strong> — draft version. The text is provisional and the signatories shown are fictitious."
+back = "← Back to the call"
+our_request = "Our request"
+signatories = "Signatories"
+see_all = "→ See all signatories"
+updated = "Updated"
+sign = "Sign the call"
+email_not_published = "Email addresses are not published."
+privacy = "Privacy policy"
+ask_organisation = "Want to <strong>sign as an organisation</strong>?"
+ask_join = "Want to <strong>join the community</strong>?"
+contact_us_link = "→ Contact us"
+comment = "Comment"
+contact_title = "Contact"
+contact_intro = "This open letter is a joint effort of the French AI safety community, coordinated by the association Pour une Intelligence Artificielle Fiable (PIAF)."
+contact_email = "You can reach us at"
+contact_organisations = "Organisations wishing to sign the call can return this <a href=\"{{root}}downloads/signature-association.pdf\" download>signature form</a> (in French), completed, to the same address."
+join_title = "Join"
+join_whatsapp = "Join the WhatsApp group"

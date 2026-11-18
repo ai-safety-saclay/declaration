@@ -100,21 +100,89 @@ h2 {
 .signatories .card ul {
   list-style: none;
   margin: 0;
-  padding: 3rem 1rem 3rem 1.5rem;
+  padding: 1.5rem 1rem 1.5rem 1.5rem;
   border: 1px solid var(--hairline);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
+/* Home page: a preview capped at half the viewport, fading out at the
+   bottom; the full list lives at /signataires/. */
+.signatories .card ul.preview {
+  min-height: 50vh;
+  max-height: 50vh;
+  overflow: hidden;
+  mask-image: linear-gradient(#000 calc(100% - 4rem), transparent);
+}
+.all-signatories {
+  display: block;
+  margin-top: 0.75rem;
+  text-align: right;
+  font-weight: 500;
+}
+.privacy-note { font-size: 0.8rem; color: var(--muted); }
+.policy-page { display: block; max-width: 800px; padding-top: 3rem; }
+.policy-page h2 { margin-left: 0; }
+.policy-page .card { border: 1px solid var(--hairline); padding: 1.5rem 2rem 2rem; }
+.policy-page .card h2 { font-size: 1.4rem; margin: 2rem 0 0.5rem; }
+.signatories-page { display: block; max-width: 800px; padding-top: 3rem; }
+.signatories-page h2 { margin-left: 0; }
 .signatory p { margin: 0; }
 .signatory .name { font-weight: 500; }
-.signatory .role { font-size: 0.875rem; color: var(--muted); line-height: 1.4; }
+.signatory .meta { line-height: 1.4; }
+.signatory .role { font-size: 0.875rem; font-style: italic; color: var(--muted); line-height: 1.4; }
+.signatory .institution {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.signatory .role:has(+ .institution)::after { content: ", "; white-space: pre; }
 .signatory blockquote {
   margin: 0.5rem 0 0;
   border-left: 2px solid var(--accent-soft);
   padding: 0.4rem 0.75rem;
   background: #f7f7f7;
   font-size: 0.875rem;
+}
+/* Comments (full list only). Phones: a “ toggle at the right of the name,
+   opening the quote below. Wide screens: the quote sits right of the name. */
+.signatory { position: relative; }
+.comment-wide { display: none; }
+.comment-narrow summary {
+  position: absolute;
+  top: 0;
+  right: 0;
+  list-style: none;
+  cursor: pointer;
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 2rem;
+  line-height: 1;
+  height: 1.5rem;
+  padding: 0 0.4rem;
+  color: var(--accent-soft);
+  border-radius: 4px;
+}
+.comment-narrow summary::-webkit-details-marker { display: none; }
+.comment-narrow[open] summary { color: var(--ink); background: #f7f7f7; }
+.signatory:has(.comment-narrow) .who { padding-right: 2.5rem; }
+/* Wide screens: the full list becomes a two-column table (signatory |
+   comment), rows split by a faint hairline. */
+@media (min-width: 900px) {
+  .signatories-page { max-width: calc(16rem + 2rem + 24rem + 2.5rem + 2rem); }
+  .signatories-page .card ul { gap: 0; }
+  .signatories-page .signatory {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 24rem);
+    gap: 2rem;
+    padding: 0.9rem 0;
+  }
+  .signatories-page .signatory + .signatory { border-top: 1px solid rgb(0 0 0 / 0.05); }
+  .signatory:has(.comment-narrow) .who { padding-right: 0; }
+  .comment-narrow { display: none; }
+  .comment-wide { display: block; }
+  .comment-wide blockquote { margin: 0; }
 }
 .updated { color: var(--muted); font-size: 0.8rem; margin-left: 1.75rem; }
 
@@ -207,7 +275,8 @@ html { scroll-behavior: smooth; }
 .contact-page { display: block; max-width: 1000px; padding-top: 3rem; }
 .contacts h2 { margin-left: 0; }
 .contact-intro { max-width: 72ch; margin: 0 0 1rem; }
-.contact-email { margin-bottom: 2.5rem; }
+.contact-email { margin-bottom: 1rem; }
+.contact-assos { max-width: 72ch; margin: 0 0 2.5rem; }
 .contacts h2.contact-join-title { margin: 2rem 0 1.5rem; }
 .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
 .contact-card { min-height: 230px; padding: 2rem; border: 1px solid var(--hairline); background: #f7f7f7; box-shadow: 0 2px 2px rgb(0 0 0 / 0.1); color: var(--ink); text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; text-align: center; font-weight: 500; }
@@ -239,3 +308,33 @@ html { scroll-behavior: smooth; }
   text-align: center;
   font-size: 0.95rem;
 }
+
+/* Sub-pages: WIP banner + back link stay pinned while scrolling. */
+.topbar { position: sticky; top: 0; z-index: 10; }
+.topbar .wip { position: static; }
+.back-bar {
+  padding: 0.6rem 1rem;
+  background: #eee;
+  text-align: center;
+  border-bottom: 1px solid var(--hairline);
+  box-shadow: 0 2px 2px rgb(0 0 0 / 0.05);
+}
+.back-bar a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.back-bar a:hover { text-decoration: underline; }
+
+/* FR · EN switch, top right of the header. */
+header { position: relative; }
+.lang-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.lang-switch a { color: var(--muted); text-decoration: none; }
+.lang-switch a:hover { color: var(--ink); }
+.lang-switch a[aria-current] { color: var(--ink); font-weight: 600; }
