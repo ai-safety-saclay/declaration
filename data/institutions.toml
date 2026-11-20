@@ -1,0 +1,22 @@
+# Institution shown for each e-mail domain. A domain also covers its
+# subdomains (student.example.fr matches example.fr). Signatories whose
+# domain is not listed are shown without an institution.
+"universite-paris-saclay.fr" = "Université Paris-Saclay"
+"ens-paris-saclay.fr" = "ENS Paris-Saclay"
+"centralesupelec.fr" = "CentraleSupélec"
+"polytechnique.edu" = "École polytechnique"
+"polytechnique.fr" = "École polytechnique"
+"telecom-paris.fr" = "Télécom Paris"
+"enst.fr" = "Télécom Paris"
+"ensae.fr" = "ENSAE Paris"
+"ensta-paris.fr" = "ENSTA Paris"
+"ensta.fr" = "ENSTA Paris"
+"ip-paris.fr" = "Institut Polytechnique de Paris"
+"telecom-sudparis.eu" = "Télécom SudParis"
+"agroparistech.fr" = "AgroParisTech"
+"institutoptique.fr" = "Institut d’Optique"
+"ihes.fr" = "IHES"
+"inria.fr" = "Inria"
+"cnrs.fr" = "CNRS"
+"cea.fr" = "CEA"
+"dauphine.psl.eu" = "Université Paris Dauphine-PSL"

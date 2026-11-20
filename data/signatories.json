@@ -2,7 +2,7 @@
   {
     "firstname": "Jean",
     "name": "Dupont",
-    "role": "Chercheur",
+    "role": "Researcher",
     "institution": "Inria Saclay (factice)",
     "comment": "",
     "featured": false
@@ -10,7 +10,7 @@
   {
     "firstname": "Pierre",
     "name": "Dupond",
-    "role": "Étudiant",
+    "role": "Student",
     "institution": "Telecom Paris (factice)",
     "comment": "Les écoles d’ingénieurs forment celles et ceux qui construiront ces systèmes : la sûreté de l’IA doit faire partie de leur formation.",
     "featured": false

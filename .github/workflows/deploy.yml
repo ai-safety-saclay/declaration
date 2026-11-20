@@ -24,8 +24,10 @@ jobs:
       - uses: astral-sh/setup-uv@v6
       - name: Build site
         env:
-          # Set this repo variable once the backend exists; falls back to data/signatories.json.
-          SIGNATORIES_URL: ${{ vars.SIGNATORIES_URL }}
+          # Proca signatures (public) and the Grist form holding public comments.
+          PROCA_URL: https://vurrrokassxubbxlvufw.supabase.co/functions/v1/actions-1061
+          GRIST_API_KEY: ${{ secrets.GRIST_API_KEY }}
+          FORM_DOC_ID: ${{ secrets.FORM_DOC_ID }}
         run: uv run build.py
       - uses: actions/upload-pages-artifact@v3
         with:

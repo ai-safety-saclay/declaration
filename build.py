@@ -8,8 +8,11 @@ Each page is templates/base.html wrapped around one templates/<page>.html.
 Interface text comes from strings.toml; the call and the privacy policy
 from DECLARATION[.en].md and CONFIDENTIALITE[.en].md.
 
-Signatories are fetched from $SIGNATORIES_URL when set, otherwise read
-from data/signatories.json. They are shared by both languages.
+Signatories are the Proca actions served at $PROCA_URL when set, otherwise
+the sample data/signatories.json. Their institution is looked up from the
+e-mail domain in data/institutions.toml, and public comments are joined by
+e-mail from the Grist form ($GRIST_API_KEY, $FORM_DOC_ID). Values in a local
+.env file are used when the environment does not set them.
 """
 
 import html
@@ -64,16 +67,89 @@ def render(template: str, ctx: dict[str, str]) -> str:
     return re.sub(r"\{\{([\w.]+)\}\}", sub, template)
 
 
+def load_dotenv() -> None:
+    """Read KEY=value lines from .env, without overriding the environment."""
+    path = ROOT / ".env"
+    if path.exists():
+        for line in path.read_text().splitlines():
+            key, sep, value = line.partition("=")
+            if sep and not key.lstrip().startswith("#"):
+                os.environ.setdefault(key.strip(), value.strip().strip("'\""))
+
+
+def fetch_json(url: str, headers: dict[str, str] | None = None):
+    req = urllib.request.Request(url, headers={"User-Agent": "encadrer-ia-frontiere", **(headers or {})})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.load(resp)
+
+
+def tidy_name(name: str) -> str:
+    """Capitalise a name typed all in upper or lower case: PERONNET → Peronnet."""
+    name = " ".join(name.split())
+    if name.isupper() or name.islower():
+        name = re.sub(r"[^\W\d_]+", lambda m: m[0].capitalize(), name.lower())
+    return name
+
+
+def institution_for(email: str, institutions: dict[str, str]) -> str:
+    """Institution of the e-mail domain or of its closest listed parent domain."""
+    labels = email.rpartition("@")[2].lower().split(".")
+    for i in range(len(labels) - 1):
+        if (name := institutions.get(".".join(labels[i:]))):
+            return name
+    return ""
+
+
+def role_key(role: str) -> str:
+    """Key in strings.toml of a Proca role: "Head of institution" → role_head_of_institution."""
+    return "role_" + role.lower().replace(" ", "_")
+
+
+def fetch_comments() -> dict[str, str]:
+    """Public comments from the Grist form, by lower-cased e-mail; the latest wins."""
+    key, doc = os.environ.get("GRIST_API_KEY"), os.environ.get("FORM_DOC_ID")
+    if not (key and doc):
+        return {}
+    url = f"https://docs.getgrist.com/api/docs/{doc}/tables/Commentaires/records"
+    comments = {}
+    for record in fetch_json(url, {"Authorization": f"Bearer {key}"})["records"]:
+        fields = record["fields"]
+        email = (fields.get("Email") or "").strip().lower()
+        comment = str(fields.get("Commentaire") or "").strip()
+        if email and comment:
+            comments[email] = comment
+    return comments
+
+
 def load_signatories() -> list[dict]:
-    url = os.environ.get("SIGNATORIES_URL")
-    if url:
-        with urllib.request.urlopen(url, timeout=30) as resp:
-            return json.load(resp)
-    return json.loads((ROOT / "data" / "signatories.json").read_text())
+    url = os.environ.get("PROCA_URL")
+    if not url:
+        return json.loads((ROOT / "data" / "signatories.json").read_text())
+    institutions = tomllib.loads((ROOT / "data" / "institutions.toml").read_text())
+    comments = fetch_comments()
+    signatories, seen = [], set()
+    for row in fetch_json(url):
+        data = row["data"]
+        action, contact = data["action"], data["contact"]
+        email = (contact.get("email") or "").strip().lower()
+        # Skip test signatures and repeated signatures from the same address.
+        if action.get("testing") or not email or email in seen:
+            continue
+        seen.add(email)
+        signatories.append({
+            "firstname": tidy_name(contact.get("firstName") or ""),
+            "name": tidy_name(contact.get("lastName") or ""),
+            "role": (action.get("customFields") or {}).get("role") or "",
+            "institution": institution_for(email, institutions),
+            "comment": comments.get(email, ""),
+            "featured": False,
+        })
+    return signatories
 
 
 def render_signatory(s: dict, t: dict[str, str], with_comment: bool = False) -> str:
-    e = lambda k: html.escape(s.get(k) or "")
+    role = t.get(role_key(s.get("role") or ""), "")
+    e = lambda k: html.escape((role if k == "role" else s.get(k)) or "")
     featured = " featured" if s.get("featured") else ""
     comment = ""
     if with_comment and s.get("comment"):
@@ -88,7 +164,7 @@ def render_signatory(s: dict, t: dict[str, str], with_comment: bool = False) -> 
         f'<li class="signatory{featured}">'
         f'<div class="who"><p class="name">{e("firstname")} {e("name")}</p>'
         + '<p class="meta">'
-        + (f'<span class="role">{e("role")}</span>' if s.get("role") else "")
+        + (f'<span class="role">{e("role")}</span>' if role else "")
         + (f'<span class="institution">{e("institution")}</span>' if s.get("institution") else "")
         + "</p></div>"
         + f"{comment}</li>"
@@ -117,6 +193,7 @@ def write_sitemap(now: datetime) -> None:
 
 
 def main() -> None:
+    load_dotenv()
     strings = tomllib.loads((ROOT / "strings.toml").read_text())
     signatories = load_signatories()
     # Notable signatories first; sort is stable so the API order is kept otherwise.

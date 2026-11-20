@@ -28,7 +28,7 @@ header {
 
 /* Two columns: statement left, signatories right; stacked on mobile. */
 main {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 4rem 1rem;
   display: grid;
@@ -36,7 +36,7 @@ main {
 }
 @media (min-width: 1024px) {
   main {
-    grid-template-columns: minmax(0, 9.6fr) minmax(0, 5fr);
+    grid-template-columns: minmax(0, 9.6fr) minmax(0, 5.5fr);
     grid-template-areas: "statement signatories";
     gap: 4.5rem;
     align-items: start;
@@ -268,7 +268,7 @@ html { scroll-behavior: smooth; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem 2rem;
+  gap: 1.5rem 1.25rem;
   margin: 2rem 0 0;
 }
 .logos img { height: 44px; width: auto; }
