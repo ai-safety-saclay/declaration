@@ -4,7 +4,8 @@
 # ///
 """Draw the link-preview image (Twitter, WhatsApp…) into static/share.png.
 
-The title of DECLARATION.md on two lines, the partner logos underneath.
+The title of DECLARATION.md on two lines, the signatory logos underneath
+in two rows, in the same order as on the home page.
 Run by hand when the title or the logos change; the result is committed.
 """
 
@@ -18,7 +19,12 @@ ROOT = Path(__file__).parent
 OUT = ROOT / "static" / "share.png"
 W, H = 1200, 630
 FONT_URL = "https://github.com/google/fonts/raw/main/ofl/sourceserif4/SourceSerif4%5Bopsz,wght%5D.ttf"
-LOGOS = ["piaf.png", "logo-tuxae.png", "logo-telecom-ia.png", "logo-automatants.png", "logo-data-ensta.png"]
+# Rows of (file, scale). Logos without built-in padding get a smaller
+# scale so they read at the same size, as on the home page (44px vs 64px).
+LOGO_ROWS = [
+    [("piaf.png", 1), ("logo-tuxae.png", 1), ("logo-telecom-ia.png", 1), ("rezal-crop.png", 1)],
+    [("logo-automatants.png", 1), ("logo-data-ensta.png", 1), ("dau-ia-crop.jpg", 44 / 64)],
+]
 
 
 def two_lines(title: str) -> list[str]:
@@ -43,22 +49,27 @@ def main() -> None:
     draw = ImageDraw.Draw(img)
 
     lines = two_lines(title)
-    y = 120
+    y = 60
     for line in lines:
         draw.text((W / 2, y), line, font=font, fill="#111", anchor="mt")
         y += 96
     draw.line([(W / 2 - 60, y + 20), (W / 2 + 60, y + 20)], fill="#111", width=3)
 
-    # Logos in a row, all scaled to the same height.
-    height, gap = 120, 56
-    logos = []
-    for name in LOGOS:
-        logo = Image.open(ROOT / "static" / "logos" / name).convert("RGBA")
-        logos.append(logo.resize((round(logo.width * height / logo.height), height), Image.LANCZOS))
-    x = (W - sum(l.width for l in logos) - gap * (len(logos) - 1)) // 2
-    for logo in logos:
-        img.paste(logo, (x, H - 90 - height), logo)
-        x += logo.width + gap
+    # Logos in centred rows, each scaled to the row height times its scale
+    # and centred vertically within the row.
+    height, gap, row_gap = 110, 64, 28
+    top = H - 40 - len(LOGO_ROWS) * height - (len(LOGO_ROWS) - 1) * row_gap
+    for r, row in enumerate(LOGO_ROWS):
+        logos = []
+        for name, scale in row:
+            logo = Image.open(ROOT / "static" / "logos" / name).convert("RGBA")
+            h = round(height * scale)
+            logos.append(logo.resize((round(logo.width * h / logo.height), h), Image.LANCZOS))
+        x = (W - sum(l.width for l in logos) - gap * (len(logos) - 1)) // 2
+        y = top + r * (height + row_gap)
+        for logo in logos:
+            img.paste(logo, (x, y + (height - logo.height) // 2), logo)
+            x += logo.width + gap
 
     img.save(OUT, optimize=True)
     print(f"Wrote {OUT} ({OUT.stat().st_size // 1024} KB)")
