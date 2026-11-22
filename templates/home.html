@@ -26,8 +26,20 @@
       <p class="updated">{{t.updated}} {{updated}}</p>
       <div class="card sign" id="signature">
         <h2>{{t.sign}}</h2>
-        <p class="sign-hint">{{t.sign_hint}}</p>
         <script src="https://widget.proca.app/d/{{t.widget}}" async></script>
+        <script>
+          // Hack: the widget offers no setting for the e-mail field's label, so
+          // rewrite its text, again whenever React redraws the form.
+          (() => {
+            const text = "{{t.email_label}}";
+            const relabel = () => {
+              const label = document.querySelector('label[for="email"]');
+              const node = label && [...label.childNodes].find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+              if (node && node.textContent !== text) node.textContent = text;
+            };
+            new MutationObserver(relabel).observe(document.body, { childList: true, subtree: true, characterData: true });
+          })();
+        </script>
         <a class="add-comment" href="https://docs.getgrist.com/forms/hDGYGcUPYiuPbKRUo3Bvnp/25" target="_blank" rel="noopener noreferrer">{{t.add_comment}}</a>
       </div>
       <div class="contact-asks">
