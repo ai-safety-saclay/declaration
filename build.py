@@ -100,9 +100,26 @@ def institution_for(email: str, institutions: dict[str, str]) -> str:
     return ""
 
 
-def role_key(role: str) -> str:
-    """Key in strings.toml of a Proca role: "Head of institution" → role_head_of_institution."""
-    return "role_" + role.lower().replace(" ", "_")
+# Values the Proca widget may send for each role: the labels of its French
+# and English role lists, and the ids of its former built-in list. Each role
+# is shown with the label role_<key> of the page's language in strings.toml.
+ROLES = {
+    "student": ["Étudiant·e", "Student"],
+    "phd": ["Doctorant·e", "PhD student", "PhD"],
+    "researcher": ["Chercheur·euse", "Researcher"],
+    "teacher": ["Enseignant·e (hors recherche)", "Teacher (non-research)"],
+    "engineer": ["Ingénieur·e", "Engineer"],
+    "head_of_institution": ["Chef·fe d'établissement", "Head of institution"],
+    "other": ["Autre", "Other"],
+}
+normalise = lambda value: " ".join(value.replace("’", "'").casefold().split())
+ROLE_BY_VALUE = {normalise(v): key for key, values in ROLES.items() for v in values}
+
+
+def role_label(value: str, t: dict[str, str]) -> str:
+    """Label of a role in the page's language; an unknown value is shown as sent."""
+    key = ROLE_BY_VALUE.get(normalise(value))
+    return t[f"role_{key}"] if key else value.strip()
 
 
 def fetch_comments() -> dict[str, str]:
@@ -148,7 +165,7 @@ def load_signatories() -> list[dict]:
 
 
 def render_signatory(s: dict, t: dict[str, str], with_comment: bool = False) -> str:
-    role = t.get(role_key(s.get("role") or ""), "")
+    role = role_label(s.get("role") or "", t)
     e = lambda k: html.escape((role if k == "role" else s.get(k)) or "")
     featured = " featured" if s.get("featured") else ""
     comment = ""
