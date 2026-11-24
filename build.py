@@ -113,15 +113,16 @@ ROLES = {
     "student": ["Étudiant·e", "Student"],
     "phd": ["Doctorant·e", "PhD student", "PhD"],
     "researcher": ["Chercheur·euse", "Researcher"],
-    "teacher": ["Enseignant·e (hors recherche)", "Teacher (non-research)"],
+    "teacher_researcher": ["Enseignant·e-chercheur·euse", "Teacher-researcher", "Faculty member"],
+    "teacher": ["Enseignant·e", "Teacher", "Enseignant·e (hors recherche)", "Teacher (non-research)"],
     "engineer": ["Ingénieur·e", "Engineer"],
-    "head_of_institution": ["Chef·fe d'établissement", "Head of institution"],
+    "head_of_institution": ["Chef·fe d'établissement", "Directeur·ice d'établissement", "Head of institution"],
     "other": ["Autre", "Other"],
 }
 normalise = lambda value: " ".join(value.replace("’", "'").casefold().split())
 ROLE_BY_VALUE = {normalise(v): key for key, values in ROLES.items() for v in values}
 # Order of the roles in the home page preview; roles not listed come last.
-PREVIEW_ORDER = ["head_of_institution", "researcher", "phd", "student", "engineer"]
+PREVIEW_ORDER = ["head_of_institution", "researcher", "teacher_researcher", "teacher", "phd", "student", "engineer"]
 
 
 def preview_rank(s: dict) -> tuple[bool, int]:
