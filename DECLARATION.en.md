@@ -1,6 +1,6 @@
 # The Paris-Saclay Call to Regulate Frontier AI
 
-This summer, AI systems from several major AI labs slipped out of control, hacking into real companies [^hacking] and even a government website [^medicare]. Since then, warnings have been mounting. On September 7 and again on September 14, the United Nations High Commissioner for Human Rights warned that, in the absence of binding rules and independent oversight, AI threatens “all human rights.” [^speech][^lettre] A week later, more than twenty heads of state and government called for control of frontier AI models [^control], and the Security Council took up the issue at France's initiative [^ONU]. On November 9, France and its partners adopted the Paris Call, signed by more than fifteen countries and about ten AI companies, including OpenAI, Anthropic, and Mistral [^appel].
+This summer, AI systems from several major AI labs slipped out of control, hacking into real companies [^hacking] and even a government website [^australie]. Since then, warnings have been mounting. On September 7 and again on September 14, the United Nations High Commissioner for Human Rights warned that, in the absence of binding rules and independent oversight, AI threatens “all human rights.” [^speech][^lettre] A week later, more than twenty heads of state and government called for control of frontier AI models [^control], and the Security Council took up the issue at France's initiative [^ONU]. On November 9, France and its partners adopted the Paris Call, signed by more than fifteen countries and about ten AI companies, including OpenAI, Anthropic, and Mistral [^appel].
 
 Today's AI systems are already uncovering thousands of previously unknown security vulnerabilities [^cyber], upending mathematics [^maths], and threatening many professions [^metiers]. The risks ahead are even more serious: widespread cyberattacks, bioterrorism, and the loss of control over AI systems themselves [^report]. The development of AI, which is already proceeding at an extremely rapid pace, is only accelerating [^horizon], and AI itself is increasingly contributing to this acceleration [^rsi]. Deciding what risks are acceptable cannot be left to a handful of companies; it must be the subject of a democratic debate [^lettre]. As Jean-Noël Barrot, Minister for Europe and Foreign Affairs, said before the Security Council on September 23, 2026: “As with the atom back then, it falls to the international community to govern it, so as to make the best of it and ward off the worst.” [^barrot]
 
@@ -24,12 +24,12 @@ Sources:
 [^control]: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
 [^ONU]: https://press.un.org/fr/blog/cs16462
 [^appel]: https://www.elysee.fr/emmanuel-macron/2026/11/09/communique-reunion-ia-et-securite
-[^report]:  https://arxiv.org/pdf/2602.21012
-[^horizon]: https://metr.org/blog/2026-01-29-time-horizon-1-1/
-[^rsi]: https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/
 [^cyber]: https://www.anthropic.com/glasswing
 [^maths]: https://mathandai.org/
 [^metiers]: https://www.coface.com/fr/actualites-economie-conseils-d-experts/ia-et-emploi-quatre-ans-apres-le-lancement-de-chatgpt-les-offres-d-emploi-des-metiers-les-plus-exposes-decrochent
+[^report]:  https://arxiv.org/pdf/2602.21012
+[^horizon]: https://metr.org/blog/2026-01-29-time-horizon-1-1/
+[^rsi]: https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/
 [^barrot]:Our translation, https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/agnu-discours-de-jean-noel-barrot-ministre-de-l-europe-et-des-affaires-etrangeres-lors-de-la-reunion
 [^redlines]: https://red-lines.ai/
 [^cesia]: https://cesia.org/fr/publications/ai-act-le-cesia-appelle-la-commission-a-exercer-ses-pouvoirs-des-le-2-aout/
