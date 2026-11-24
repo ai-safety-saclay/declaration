@@ -5,7 +5,7 @@
 
 [fr]
 # Meta description (search results, link previews). ~160 characters are shown.
-description = "Appel de chercheurs, ingénieurs, enseignants et étudiants des écoles et universités du plateau de Saclay au gouvernement français pour encadrer l’IA de frontière : lignes rouges et régulation des modèles d’IA les plus avancés, recherche en sûreté de l’IA de pointe en France et en Europe."
+description = "Appel de chercheurs et enseignants, ingénieurs et étudiants pour définir des lignes rouges claires, exiger plus de transparence et réorienter la recherche en IA."
 # Proca widget path: https://widget.proca.app/d/<widget>
 widget = "ai_piaf_2026/fr"
 date_format = "%d/%m/%Y %H:%M UTC"
@@ -43,7 +43,7 @@ role_engineer = "Ingénieur·e"
 role_other = ""
 
 [en]
-description = "Call from researchers, engineers, teachers and students of Paris-Saclay’s schools and universities urging the French government to regulate frontier AI: red lines, oversight of the most advanced AI models, and research on the safety of cutting-edge AI in France and Europe."
+description = "Call from researchers and teachers, engineers and students to set clear red lines, require more transparency and redirect AI research."
 widget = "ai_piaf_2026/piaf/en"
 date_format = "%Y-%m-%d %H:%M UTC"
 quote_open = "“"
