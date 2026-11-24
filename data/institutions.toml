@@ -153,6 +153,29 @@
 "unilim.fr" = "Université de Limoges"
 "univ-avignon.fr" = "Avignon Université"
 
+# --- Sciences politiques, administration, sciences sociales ---
+"sciencespo.fr" = "Sciences Po"
+"insp.gouv.fr" = "INSP"                                   # ex-ENA, à vérifier
+"sciencespo-lyon.fr" = "Sciences Po Lyon"
+"sciencespobordeaux.fr" = "Sciences Po Bordeaux"          # à vérifier
+"sciencespo-grenoble.fr" = "Sciences Po Grenoble"
+"sciencespo-aix.fr" = "Sciences Po Aix"
+"sciencespo-lille.eu" = "Sciences Po Lille"
+"sciencespo-rennes.fr" = "Sciences Po Rennes"
+"sciencespo-toulouse.fr" = "Sciences Po Toulouse"
+"ehess.fr" = "EHESS"
+"inalco.fr" = "Inalco"
+"assas-universite.fr" = "Université Paris-Panthéon-Assas"
+"u-paris2.fr" = "Université Paris-Panthéon-Assas"         # ancien domaine
+
+# --- Think tanks ---
+"ifri.org" = "Ifri"
+"iris-france.org" = "IRIS"
+"iddri.org" = "Iddri"
+"institutmontaigne.org" = "Institut Montaigne"
+"jean-jaures.org" = "Fondation Jean-Jaurès"
+"cesia.org" = "CeSIA"
+
 # --- Organismes de recherche ---
 "inria.fr" = "Inria"
 "cnrs.fr" = "CNRS"
