@@ -1,27 +1,86 @@
 # Institution shown for each e-mail domain. A domain also covers its
 # subdomains (student.example.fr matches example.fr). Signatories whose
 # domain is not listed are shown without an institution.
+
+# --- Plateau de Saclay et Paris-Saclay ---
 "universite-paris-saclay.fr" = "Université Paris-Saclay"
+"upsaclay.fr" = "Université Paris-Saclay"          # labos (ex. lisn.upsaclay.fr)
+"u-psud.fr" = "Université Paris-Saclay"            # ancienne Université Paris-Sud
+"uvsq.fr" = "UVSQ"
+"univ-evry.fr" = "Université d'Évry"
 "ens-paris-saclay.fr" = "ENS Paris-Saclay"
 "centralesupelec.fr" = "CentraleSupélec"
+"student-cs.fr" = "CentraleSupélec"
+"institutoptique.fr" = "Institut d’Optique"
+"agroparistech.fr" = "AgroParisTech"
+"hec.edu" = "HEC Paris"
+"ihes.fr" = "IHES"
+"onera.fr" = "ONERA"
+"synchrotron-soleil.fr" = "Synchrotron SOLEIL"
+"ensiie.fr" = "ENSIIE"
+
+# --- Institut Polytechnique de Paris ---
+"ip-paris.fr" = "Institut Polytechnique de Paris"
 "polytechnique.edu" = "École polytechnique"
 "polytechnique.fr" = "École polytechnique"
 "telecom-paris.fr" = "Télécom Paris"
 "enst.fr" = "Télécom Paris"
+"telecom-sudparis.eu" = "Télécom SudParis"
 "ensae.fr" = "ENSAE Paris"
 "ensta-paris.fr" = "ENSTA Paris"
 "ensta.fr" = "ENSTA Paris"
-"ip-paris.fr" = "Institut Polytechnique de Paris"
-"telecom-sudparis.eu" = "Télécom SudParis"
-"agroparistech.fr" = "AgroParisTech"
-"institutoptique.fr" = "Institut d’Optique"
-"ihes.fr" = "IHES"
+
+# --- Organismes de recherche ---
 "inria.fr" = "Inria"
 "cnrs.fr" = "CNRS"
+"in2p3.fr" = "CNRS"
 "cea.fr" = "CEA"
-"dauphine.psl.eu" = "Université Paris Dauphine-PSL"
-"ens-lyon.fr" = "ENS de Lyon"
+"inrae.fr" = "INRAE"
+"inserm.fr" = "Inserm"
+"pasteur.fr" = "Institut Pasteur"
+"college-de-france.fr" = "Collège de France"
+
+# --- PSL ---
 "ens.psl.eu" = "ENS Ulm"
 "ens.fr" = "ENS Ulm"
-"student-cs.fr" = "CentraleSupélec"
-"insa-lyon.fr" = "Insa Lyon"
+"dauphine.psl.eu" = "Université Paris Dauphine-PSL"
+"minesparis.psl.eu" = "Mines Paris-PSL"
+"mines-paristech.fr" = "Mines Paris-PSL"
+"espci.fr" = "ESPCI Paris-PSL"
+"espci.psl.eu" = "ESPCI Paris-PSL"
+"chimieparistech.psl.eu" = "Chimie ParisTech-PSL"
+
+# --- Autres établissements parisiens ---
+"sorbonne-universite.fr" = "Sorbonne Université"
+"lip6.fr" = "Sorbonne Université"
+"u-paris.fr" = "Université Paris Cité"
+"enpc.fr" = "École des Ponts"
+"sciencespo.fr" = "Sciences Po"
+"essec.edu" = "ESSEC"
+
+# --- Hors Île-de-France ---
+"ens-lyon.fr" = "ENS de Lyon"
+"insa-lyon.fr" = "INSA Lyon"
+"univ-lyon1.fr" = "Université Lyon 1"
+"ec-lyon.fr" = "École Centrale de Lyon"
+"ens-rennes.fr" = "ENS Rennes"
+"univ-grenoble-alpes.fr" = "Université Grenoble Alpes"
+"grenoble-inp.fr" = "Grenoble INP"
+"imt-atlantique.fr" = "IMT Atlantique"
+"eurecom.fr" = "EURECOM"
+"isae-supaero.fr" = "ISAE-SUPAERO"
+
+# --- International ---
+"ox.ac.uk" = "University of Oxford"
+"cam.ac.uk" = "University of Cambridge"
+"ucl.ac.uk" = "UCL"
+"ed.ac.uk" = "University of Edinburgh"
+"hw.ac.uk" = "Heriot-Watt University"
+"ethz.ch" = "ETH Zurich"
+"epfl.ch" = "EPFL"
+"mila.quebec" = "Mila"
+"umontreal.ca" = "Université de Montréal"
+"mit.edu" = "MIT"
+"stanford.edu" = "Stanford University"
+"berkeley.edu" = "UC Berkeley"
+"cmu.edu" = "Carnegie Mellon University"
