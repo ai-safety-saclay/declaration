@@ -129,7 +129,7 @@ def preview_rank(s: dict) -> tuple[bool, int]:
     """Featured signatories first, then by role in PREVIEW_ORDER."""
     key = ROLE_BY_VALUE.get(normalise(s.get("role") or ""))
     rank = PREVIEW_ORDER.index(key) if key in PREVIEW_ORDER else len(PREVIEW_ORDER)
-    return (not s.get("featured"), rank)
+    return (not s.get("featured"), not s.get("institution"), rank)
 
 
 def role_label(value: str, t: dict[str, str]) -> str:
@@ -329,7 +329,7 @@ def main() -> None:
     strings = tomllib.loads((ROOT / "strings.toml").read_text())
     signatories = load_signatories()
     # Notable signatories first; sort is stable so the API order is kept otherwise.
-    ordered = sorted(signatories, key=lambda s: not s.get("featured"))
+    ordered = sorted(signatories, key=lambda s: (not s.get("featured"), not s.get("institution")))
     now = datetime.now(timezone.utc)
     base = (TEMPLATES / "base.html").read_text()
 
