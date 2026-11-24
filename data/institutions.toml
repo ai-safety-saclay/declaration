@@ -42,6 +42,7 @@
 "ens.fr" = "ENS Ulm"
 "dauphine.psl.eu" = "Université Paris Dauphine-PSL"
 "dauphine.fr" = "Université Paris Dauphine-PSL"
+"dauphine.eu" = "Université Paris Dauphine-PSL"
 "minesparis.psl.eu" = "Mines Paris-PSL"
 "mines-paristech.fr" = "Mines Paris-PSL"
 "espci.fr" = "ESPCI Paris-PSL"
@@ -130,6 +131,7 @@
 "univ-cotedazur.fr" = "Université Côte d'Azur"
 "univ-lorraine.fr" = "Université de Lorraine"
 "univ-rennes.fr" = "Université de Rennes"
+"univ-rennes2.fr" = "Université Rennes 2"
 "univ-nantes.fr" = "Nantes Université"
 "univ-tlse3.fr" = "Université Toulouse III"
 "ut-capitole.fr" = "Université Toulouse Capitole"
@@ -174,6 +176,7 @@
 "institutmontaigne.org" = "Institut Montaigne"
 "jean-jaures.org" = "Fondation Jean-Jaurès"
 "cesia.org" = "CeSIA"
+"tournesol.org" = "Association Tournesol"
 
 # --- Organismes de recherche ---
 "inria.fr" = "Inria"
