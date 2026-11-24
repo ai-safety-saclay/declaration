@@ -9,8 +9,9 @@ Interface text comes from strings.toml; the call, the privacy policy and
 the legal notice from DECLARATION[.en].md, CONFIDENTIALITE[.en].md and
 MENTIONS-LEGALES[.en].md.
 
-Signatories are the Proca actions served at $PROCA_URL when set, otherwise
-the sample data/signatories.json. Their institution is looked up from the
+Signatories are the Proca actions served at $SIGNATORIES_URL (read with
+$SIGNATORIES_TOKEN) when set, otherwise the sample data/signatories.json;
+rejected signatures are left out. Their institution is looked up from the
 e-mail domain in data/institutions.toml, and public comments are joined by
 e-mail from the Grist form ($GRIST_API_KEY, $FORM_DOC_ID). Values in a local
 .env file are used when the environment does not set them.
@@ -140,19 +141,30 @@ def fetch_comments() -> dict[str, str]:
     return comments
 
 
+def fetch_signatures(url: str, token: str) -> list[dict]:
+    """Every row of the signatures endpoint, one page of 1000 at a time."""
+    rows, page = [], 0
+    while True:
+        batch = fetch_json(f"{url}?page={page}&size=1000", {"x-api-token": token})
+        rows += batch["rows"]
+        if not batch["rows"] or len(rows) >= batch["total"]:
+            return rows
+        page += 1
+
+
 def load_signatories() -> list[dict]:
-    url = os.environ.get("PROCA_URL")
-    if not url:
+    url, token = os.environ.get("SIGNATORIES_URL"), os.environ.get("SIGNATORIES_TOKEN")
+    if not (url and token):
         return json.loads((ROOT / "data" / "signatories.json").read_text())
     institutions = tomllib.loads((ROOT / "data" / "institutions.toml").read_text())
     comments = fetch_comments()
     signatories, seen = [], set()
-    for row in fetch_json(url):
+    for row in fetch_signatures(url, token):
         data = row["data"]
         action, contact = data["action"], data["contact"]
         email = (contact.get("email") or "").strip().lower()
-        # Skip test signatures and repeated signatures from the same address.
-        if action.get("testing") or not email or email in seen:
+        # Skip rejected and test signatures, and repeated signatures from the same address.
+        if row.get("status") == "rejected" or action.get("testing") or not email or email in seen:
             continue
         seen.add(email)
         signatories.append({
