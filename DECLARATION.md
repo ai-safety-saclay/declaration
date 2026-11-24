@@ -29,7 +29,7 @@ Sources:
 [^cyber]: https://www.anthropic.com/glasswing
 [^maths]: https://mathandai.org/
 [^métiers]: https://www.coface.com/fr/actualites-economie-conseils-d-experts/ia-et-emploi-quatre-ans-apres-le-lancement-de-chatgpt-les-offres-d-emploi-des-metiers-les-plus-exposes-decrochent
-[^barrot]:AGNU - Discours de Jean-Noël Barrot, ministre de l'Europe et des Affaires étrangères, lors de la réunion du Conseil de sécurité sur les enjeux de sécurité internationale liés à l'intelligence artificielle https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/agnu-discours-de-jean-noel-barrot-ministre-de-l-europe-et-des-affaires-etrangeres-lors-de-la-reunion
+[^barrot]: https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/agnu-discours-de-jean-noel-barrot-ministre-de-l-europe-et-des-affaires-etrangeres-lors-de-la-reunion
 [^redlines]: https://red-lines.ai/
 [^cesia]: https://cesia.org/fr/publications/ai-act-le-cesia-appelle-la-commission-a-exercer-ses-pouvoirs-des-le-2-aout/
 
