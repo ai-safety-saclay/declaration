@@ -1,34 +1,157 @@
 # Institution shown for each e-mail domain. A domain also covers its
 # subdomains (student.example.fr matches example.fr). Signatories whose
 # domain is not listed are shown without an institution.
+# Lignes marquées « à vérifier » : domaine probable mais non confirmé.
 
-# --- Plateau de Saclay et Paris-Saclay ---
+# --- Plateau de Saclay / Université Paris-Saclay ---
 "universite-paris-saclay.fr" = "Université Paris-Saclay"
-"upsaclay.fr" = "Université Paris-Saclay"          # labos (ex. lisn.upsaclay.fr)
+"upsaclay.fr" = "Université Paris-Saclay"          # à vérifier (labos, ex. lisn.upsaclay.fr)
 "u-psud.fr" = "Université Paris-Saclay"            # ancienne Université Paris-Sud
 "uvsq.fr" = "UVSQ"
 "univ-evry.fr" = "Université d'Évry"
 "ens-paris-saclay.fr" = "ENS Paris-Saclay"
+"ens-cachan.fr" = "ENS Paris-Saclay"               # ancien domaine
 "centralesupelec.fr" = "CentraleSupélec"
 "student-cs.fr" = "CentraleSupélec"
+"supelec.fr" = "CentraleSupélec"                   # ancien domaine
+"ecp.fr" = "CentraleSupélec"                       # ancien domaine (Centrale Paris)
 "institutoptique.fr" = "Institut d’Optique"
 "agroparistech.fr" = "AgroParisTech"
 "hec.edu" = "HEC Paris"
 "ihes.fr" = "IHES"
 "onera.fr" = "ONERA"
 "synchrotron-soleil.fr" = "Synchrotron SOLEIL"
-"ensiie.fr" = "ENSIIE"
+"ensiie.fr" = "ENSIIE"                             # à vérifier
 
 # --- Institut Polytechnique de Paris ---
 "ip-paris.fr" = "Institut Polytechnique de Paris"
 "polytechnique.edu" = "École polytechnique"
 "polytechnique.fr" = "École polytechnique"
+"polytechnique.org" = "École polytechnique"        # adresses alumni
 "telecom-paris.fr" = "Télécom Paris"
+"telecom-paristech.fr" = "Télécom Paris"           # ancien domaine
 "enst.fr" = "Télécom Paris"
 "telecom-sudparis.eu" = "Télécom SudParis"
 "ensae.fr" = "ENSAE Paris"
 "ensta-paris.fr" = "ENSTA Paris"
 "ensta.fr" = "ENSTA Paris"
+"ensta-paristech.fr" = "ENSTA Paris"               # ancien domaine
+
+# --- PSL ---
+"ens.psl.eu" = "ENS Ulm"
+"ens.fr" = "ENS Ulm"
+"dauphine.psl.eu" = "Université Paris Dauphine-PSL"
+"dauphine.fr" = "Université Paris Dauphine-PSL"
+"minesparis.psl.eu" = "Mines Paris-PSL"
+"mines-paristech.fr" = "Mines Paris-PSL"
+"espci.fr" = "ESPCI Paris-PSL"
+"espci.psl.eu" = "ESPCI Paris-PSL"                 # à vérifier
+"chimieparistech.psl.eu" = "Chimie ParisTech-PSL"  # à vérifier
+"college-de-france.fr" = "Collège de France"
+
+# --- Autres établissements d'Île-de-France ---
+"sorbonne-universite.fr" = "Sorbonne Université"
+"lip6.fr" = "Sorbonne Université"
+"u-paris.fr" = "Université Paris Cité"
+"univ-paris1.fr" = "Université Paris 1 Panthéon-Sorbonne"
+"univ-paris8.fr" = "Université Paris 8"
+"univ-paris13.fr" = "Université Sorbonne Paris Nord"
+"parisnanterre.fr" = "Université Paris Nanterre"
+"u-pec.fr" = "Université Paris-Est Créteil"
+"univ-eiffel.fr" = "Université Gustave Eiffel"
+"cyu.fr" = "CY Cergy Paris Université"
+"enpc.fr" = "École des Ponts"
+"ensam.eu" = "Arts et Métiers"
+"sciencespo.fr" = "Sciences Po"
+"essec.edu" = "ESSEC"
+"escp.eu" = "ESCP"
+"esiee.fr" = "ESIEE Paris"
+"isep.fr" = "ISEP"
+"efrei.fr" = "EFREI"                               # à vérifier
+"epita.fr" = "EPITA"
+"epitech.eu" = "Epitech"
+"esiea.fr" = "ESIEA"
+"ece.fr" = "ECE Paris"
+"42.fr" = "École 42"                               # à vérifier
+
+# --- INSA ---
+"insa-lyon.fr" = "INSA Lyon"
+"insa-toulouse.fr" = "INSA Toulouse"
+"insa-rennes.fr" = "INSA Rennes"
+"insa-rouen.fr" = "INSA Rouen Normandie"
+"insa-strasbourg.fr" = "INSA Strasbourg"
+"insa-hdf.fr" = "INSA Hauts-de-France"
+"insa-cvl.fr" = "INSA Centre Val de Loire"
+
+# --- Écoles Centrale ---
+"ec-lyon.fr" = "École Centrale de Lyon"
+"ec-nantes.fr" = "Centrale Nantes"
+"centralelille.fr" = "Centrale Lille"
+"centrale-marseille.fr" = "Centrale Méditerranée"
+"centrale-med.fr" = "Centrale Méditerranée"        # à vérifier
+
+# --- Mines / IMT ---
+"imt.fr" = "IMT"
+"imt-atlantique.fr" = "IMT Atlantique"
+"imt-nord-europe.fr" = "IMT Nord Europe"
+"mines-ales.fr" = "IMT Mines Alès"
+"mines-albi.fr" = "IMT Mines Albi"
+"emse.fr" = "Mines Saint-Étienne"
+"mines-stetienne.fr" = "Mines Saint-Étienne"
+
+# --- Autres écoles d'ingénieurs ---
+"isae-supaero.fr" = "ISAE-SUPAERO"
+"isae-ensma.fr" = "ISAE-ENSMA"
+"enac.fr" = "ENAC"
+"grenoble-inp.fr" = "Grenoble INP"
+"ensimag.fr" = "Ensimag"
+"toulouse-inp.fr" = "Toulouse INP"
+"enseeiht.fr" = "ENSEEIHT"
+"bordeaux-inp.fr" = "Bordeaux INP"
+"enseirb-matmeca.fr" = "ENSEIRB-MATMECA"
+"utc.fr" = "UTC"
+"utt.fr" = "UTT"
+"utbm.fr" = "UTBM"
+"eurecom.fr" = "EURECOM"
+"ensai.fr" = "ENSAI"
+
+# --- ENS hors Paris ---
+"ens-lyon.fr" = "ENS de Lyon"
+"ens-rennes.fr" = "ENS Rennes"
+
+# --- Universités en région ---
+"univ-lyon1.fr" = "Université Lyon 1"
+"univ-lyon2.fr" = "Université Lyon 2"
+"univ-grenoble-alpes.fr" = "Université Grenoble Alpes"
+"univ-amu.fr" = "Aix-Marseille Université"
+"u-bordeaux.fr" = "Université de Bordeaux"
+"univ-lille.fr" = "Université de Lille"
+"unistra.fr" = "Université de Strasbourg"
+"univ-cotedazur.fr" = "Université Côte d'Azur"
+"univ-lorraine.fr" = "Université de Lorraine"
+"univ-rennes.fr" = "Université de Rennes"
+"univ-nantes.fr" = "Nantes Université"
+"univ-tlse3.fr" = "Université Toulouse III"
+"ut-capitole.fr" = "Université Toulouse Capitole"
+"umontpellier.fr" = "Université de Montpellier"
+"uca.fr" = "Université Clermont Auvergne"
+"univ-st-etienne.fr" = "Université Jean Monnet"
+"univ-poitiers.fr" = "Université de Poitiers"
+"univ-tours.fr" = "Université de Tours"
+"univ-orleans.fr" = "Université d'Orléans"
+"unicaen.fr" = "Université de Caen Normandie"
+"univ-rouen.fr" = "Université de Rouen Normandie"
+"u-picardie.fr" = "Université de Picardie Jules Verne"
+"univ-reims.fr" = "Université de Reims"
+"u-bourgogne.fr" = "Université de Bourgogne"
+"univ-fcomte.fr" = "Université de Franche-Comté"
+"univ-brest.fr" = "Université de Bretagne Occidentale"
+"univ-angers.fr" = "Université d'Angers"
+"univ-smb.fr" = "Université Savoie Mont Blanc"
+"univ-pau.fr" = "Université de Pau"
+"univ-larochelle.fr" = "La Rochelle Université"
+"unilim.fr" = "Université de Limoges"
+"univ-avignon.fr" = "Avignon Université"
 
 # --- Organismes de recherche ---
 "inria.fr" = "Inria"
@@ -38,49 +161,41 @@
 "inrae.fr" = "INRAE"
 "inserm.fr" = "Inserm"
 "pasteur.fr" = "Institut Pasteur"
-"college-de-france.fr" = "Collège de France"
+"ird.fr" = "IRD"
+"ifremer.fr" = "Ifremer"
+"cnes.fr" = "CNES"
 
-# --- PSL ---
-"ens.psl.eu" = "ENS Ulm"
-"ens.fr" = "ENS Ulm"
-"dauphine.psl.eu" = "Université Paris Dauphine-PSL"
-"minesparis.psl.eu" = "Mines Paris-PSL"
-"mines-paristech.fr" = "Mines Paris-PSL"
-"espci.fr" = "ESPCI Paris-PSL"
-"espci.psl.eu" = "ESPCI Paris-PSL"
-"chimieparistech.psl.eu" = "Chimie ParisTech-PSL"
-
-# --- Autres établissements parisiens ---
-"sorbonne-universite.fr" = "Sorbonne Université"
-"lip6.fr" = "Sorbonne Université"
-"u-paris.fr" = "Université Paris Cité"
-"enpc.fr" = "École des Ponts"
-"sciencespo.fr" = "Sciences Po"
-"essec.edu" = "ESSEC"
-
-# --- Hors Île-de-France ---
-"ens-lyon.fr" = "ENS de Lyon"
-"insa-lyon.fr" = "INSA Lyon"
-"univ-lyon1.fr" = "Université Lyon 1"
-"ec-lyon.fr" = "École Centrale de Lyon"
-"ens-rennes.fr" = "ENS Rennes"
-"univ-grenoble-alpes.fr" = "Université Grenoble Alpes"
-"grenoble-inp.fr" = "Grenoble INP"
-"imt-atlantique.fr" = "IMT Atlantique"
-"eurecom.fr" = "EURECOM"
-"isae-supaero.fr" = "ISAE-SUPAERO"
+# --- Écoles de commerce (hors IdF déjà listées) ---
+"edhec.edu" = "EDHEC"
+"em-lyon.com" = "emlyon business school"
+"neoma-bs.fr" = "NEOMA"
+"skema.edu" = "SKEMA"
+"grenoble-em.com" = "Grenoble École de Management"
 
 # --- International ---
 "ox.ac.uk" = "University of Oxford"
 "cam.ac.uk" = "University of Cambridge"
 "ucl.ac.uk" = "UCL"
+"imperial.ac.uk" = "Imperial College London"
 "ed.ac.uk" = "University of Edinburgh"
 "hw.ac.uk" = "Heriot-Watt University"
 "ethz.ch" = "ETH Zurich"
 "epfl.ch" = "EPFL"
+"unige.ch" = "Université de Genève"
+"uclouvain.be" = "UCLouvain"
+"ulb.be" = "ULB"
+"kuleuven.be" = "KU Leuven"
+"tum.de" = "TU Munich"
+"mpg.de" = "Max Planck Society"
+"uva.nl" = "University of Amsterdam"
 "mila.quebec" = "Mila"
 "umontreal.ca" = "Université de Montréal"
+"mcgill.ca" = "McGill University"
+"utoronto.ca" = "University of Toronto"
 "mit.edu" = "MIT"
+"harvard.edu" = "Harvard University"
 "stanford.edu" = "Stanford University"
 "berkeley.edu" = "UC Berkeley"
 "cmu.edu" = "Carnegie Mellon University"
+"princeton.edu" = "Princeton University"
+"nyu.edu" = "NYU"
