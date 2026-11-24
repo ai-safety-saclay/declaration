@@ -13,7 +13,9 @@ Signatories are the Proca actions served at $SIGNATORIES_URL (read with
 $SIGNATORIES_TOKEN) when set, otherwise the sample data/signatories.json;
 rejected signatures are left out. Their institution is looked up from the
 e-mail domain in data/institutions.toml, and public comments are joined by
-e-mail from the Grist form ($GRIST_API_KEY, $FORM_DOC_ID). Values in a local
+e-mail from the Grist form ($GRIST_API_KEY, $FORM_DOC_ID). Signatures under
+the same name are merged; merged names are listed in the GitHub Actions job
+summary. Values in a local
 .env file are used when the environment does not set them.
 """
 
@@ -23,6 +25,7 @@ import os
 import re
 import shutil
 import tomllib
+import unicodedata
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -161,6 +164,57 @@ def fetch_signatures(url: str, token: str) -> list[dict]:
         page += 1
 
 
+def name_key(s: dict) -> str:
+    """First and last name, ignoring case, accents and spacing."""
+    text = unicodedata.normalize("NFKD", f"{s['firstname']} {s['name']}")
+    return " ".join("".join(c for c in text if not unicodedata.combining(c)).casefold().split())
+
+
+def merge_by_name(signatories: list[dict]) -> tuple[list[dict], list[tuple[dict, int]]]:
+    """One entry per name: the first signature, with the role, institution and
+    comment of a later one filling any of those it lacks (e.g. institution from
+    an academic address, comment given with a personal one). Also returns each
+    merged entry with its number of signatures."""
+    merged: dict[str, dict] = {}
+    counts: dict[str, int] = {}
+    for s in signatories:
+        key = name_key(s)
+        if key not in merged:
+            merged[key], counts[key] = dict(s), 1
+            continue
+        counts[key] += 1
+        kept = merged[key]
+        for field in ("role", "institution", "comment"):
+            kept[field] = kept.get(field) or s.get(field) or ""
+        kept["featured"] = kept.get("featured") or s.get("featured")
+    duplicates = [(merged[k], n) for k, n in counts.items() if n > 1]
+    return list(merged.values()), duplicates
+
+
+def report_duplicates(duplicates: list[tuple[dict, int]]) -> None:
+    """List merged names in the GitHub Actions job summary (and the log).
+    The repository is public: names only, never e-mail addresses."""
+    if not duplicates:
+        return
+    rows = [
+        f"| {s['firstname']} {s['name']} | {n} | {s.get('institution') or '—'} | {'oui' if s.get('comment') else 'non'} |"
+        for s, n in duplicates
+    ]
+    table = "\n".join([
+        f"### Signataires fusionnés ({len(duplicates)})",
+        "",
+        "Plusieurs signatures au même nom, affichées une seule fois.",
+        "",
+        "| Nom | Signatures | Établissement retenu | Commentaire |",
+        "|---|---:|---|---|",
+        *rows,
+    ])
+    print(table)
+    if (summary := os.environ.get("GITHUB_STEP_SUMMARY")):
+        with open(summary, "a") as f:
+            f.write(table + "\n")
+
+
 def load_signatories() -> list[dict]:
     url, token = os.environ.get("SIGNATORIES_URL"), os.environ.get("SIGNATORIES_TOKEN")
     if not (url and token):
@@ -184,30 +238,67 @@ def load_signatories() -> list[dict]:
             "comment": comments.get(email, ""),
             "featured": False,
         })
+    signatories, duplicates = merge_by_name(signatories)
+    report_duplicates(duplicates)
     return signatories
 
 
-def render_signatory(s: dict, t: dict[str, str], with_comment: bool = False) -> str:
+def render_signatory(s: dict, t: dict[str, str], with_comment: bool = False,
+                     inst_ids: dict[str, str] | None = None) -> str:
     role = role_label(s.get("role") or "", t)
     e = lambda k: html.escape((role if k == "role" else s.get(k)) or "")
     featured = " featured" if s.get("featured") else ""
     comment = ""
     if with_comment and s.get("comment"):
-        quote = f"<blockquote>{t['quote_open']}{e('comment')}{t['quote_close']}</blockquote>"
-        # Two copies, toggled by CSS: shown beside the name on wide screens,
-        # behind a quote-mark toggle (<details>) on phones.
-        comment = (
-            f'<div class="comment-wide">{quote}</div>'
-            f'<details class="comment-narrow"><summary aria-label="{t["comment"]}">“</summary>{quote}</details>'
-        )
+        # Below the name on phones, beside it on wide screens (style.css).
+        comment = f"<blockquote>{t['quote_open']}{e('comment')}{t['quote_close']}</blockquote>"
+    inst = (inst_ids or {}).get(s.get("institution") or "")
     return (
-        f'<li class="signatory{featured}">'
+        f'<li class="signatory{featured}"' + (f' data-inst="{inst}"' if inst else "") + ">"
         f'<div class="who"><p class="name">{e("firstname")} {e("name")}</p>'
         + '<p class="meta">'
         + (f'<span class="role">{e("role")}</span>' if role else "")
         + (f'<span class="institution">{e("institution")}</span>' if s.get("institution") else "")
         + "</p></div>"
         + f"{comment}</li>"
+    )
+
+
+def institution_filter(signatories: list[dict], t: dict[str, str]) -> tuple[dict[str, str], str]:
+    """Id of each institution, and the radio buttons that dim everyone else.
+
+    One CSS rule per institution, generated here, uses :has() to dim the
+    other signatories while its radio button is checked; a small script only
+    resets to "all" on a click outside or Escape. Institutions with the most
+    signatories come first.
+    """
+    counts: dict[str, int] = {}
+    for s in signatories:
+        if (name := s.get("institution")):
+            counts[name] = counts.get(name, 0) + 1
+    names = sorted(counts, key=lambda n: (-counts[n], n))
+    ids = {name: f"inst-{i}" for i, name in enumerate(names, 1)}
+    if not names:
+        return ids, ""
+    button = lambda id, label, n, checked="": (
+        f'<input type="radio" name="inst" id="{id}"{checked}>'
+        f'<label for="{id}">{label} <span class="n">{n}</span></label>'
+    )
+    buttons = [button("inst-all", t["filter_all"], len(signatories), " checked")]
+    buttons += [button(ids[n], html.escape(n), counts[n]) for n in names]
+    rules = "\n".join(
+        f'.signatories-page:has(#{id}:checked) .signatory:not([data-inst="{id}"]) {{ opacity: 0.2; }}'
+        for id in ids.values()
+    )
+    return ids, (
+        f'<div class="inst-filter" role="radiogroup" aria-label="{t["filter_label"]}">'
+        + "".join(buttons) + f"</div>\n<style>\n{rules}\n</style>\n"
+        # Clicking outside the buttons, or Escape, goes back to "all".
+        + "<script>\n"
+        "  const reset = () => { document.getElementById('inst-all').checked = true; };\n"
+        "  document.addEventListener('click', e => { if (!e.target.closest('.inst-filter')) reset(); });\n"
+        "  document.addEventListener('keydown', e => { if (e.key === 'Escape') reset(); });\n"
+        "</script>"
     )
 
 
@@ -249,7 +340,8 @@ def main() -> None:
         policy_title, policy = read_markdown(localized("CONFIDENTIALITE", lang))
         legal_title, legal = read_markdown(localized("MENTIONS-LEGALES", lang))
         raw = strings[lang]
-        list_items = lambda full, rows=ordered: "\n".join(render_signatory(s, raw, full) for s in rows)
+        inst_ids, inst_filter = institution_filter(signatories, raw)
+        list_items = lambda full, rows=ordered: "\n".join(render_signatory(s, raw, full, inst_ids) for s in rows)
 
         pages = {
             "home": {
@@ -261,6 +353,7 @@ def main() -> None:
             "signatories": {
                 "page_title": f"{raw['signatories']} — {title}",
                 "signatories": list_items(True),
+                "inst_filter": inst_filter,
             },
             "contact": {"page_title": f"{raw['contact_title']} — {title}"},
             "privacy": {
