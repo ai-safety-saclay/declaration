@@ -5,8 +5,9 @@
 """Build the static site in French (/) and English (/en/).
 
 Each page is templates/base.html wrapped around one templates/<page>.html.
-Interface text comes from strings.toml; the call and the privacy policy
-from DECLARATION[.en].md and CONFIDENTIALITE[.en].md.
+Interface text comes from strings.toml; the call, the privacy policy and
+the legal notice from DECLARATION[.en].md, CONFIDENTIALITE[.en].md and
+MENTIONS-LEGALES[.en].md.
 
 Signatories are the Proca actions served at $PROCA_URL when set, otherwise
 the sample data/signatories.json. Their institution is looked up from the
@@ -43,6 +44,7 @@ PATHS = {
     "signatories": {"fr": "signataires/", "en": "en/signatories/"},
     "contact": {"fr": "contact/", "en": "en/contact/"},
     "privacy": {"fr": "confidentialite/", "en": "en/privacy/"},
+    "legal": {"fr": "mentions-legales/", "en": "en/legal-notice/"},
 }
 
 
@@ -224,6 +226,7 @@ def main() -> None:
     for lang in LANGS:
         title, declaration = read_markdown(localized("DECLARATION", lang))
         policy_title, policy = read_markdown(localized("CONFIDENTIALITE", lang))
+        legal_title, legal = read_markdown(localized("MENTIONS-LEGALES", lang))
         raw = strings[lang]
         list_items = lambda full: "\n".join(render_signatory(s, raw, full) for s in ordered)
 
@@ -232,7 +235,7 @@ def main() -> None:
                 "page_title": title,
                 "declaration": declaration,
                 "signatories": list_items(False),
-                "footer": '<a href="{{href_privacy}}">{{t.privacy}}</a>',
+                "footer": '<a href="{{href_privacy}}">{{t.privacy}}</a> · <a href="{{href_legal}}">{{t.legal}}</a>',
             },
             "signatories": {
                 "page_title": f"{raw['signatories']} — {title}",
@@ -240,9 +243,16 @@ def main() -> None:
             },
             "contact": {"page_title": f"{raw['contact_title']} — {title}"},
             "privacy": {
+                "template": "policy",
                 "page_title": f"{policy_title} — {title}",
-                "policy_title": policy_title,
-                "policy": policy,
+                "doc_title": policy_title,
+                "doc": policy,
+            },
+            "legal": {
+                "template": "policy",
+                "page_title": f"{legal_title} — {title}",
+                "doc_title": legal_title,
+                "doc": legal,
             },
         }
 
@@ -276,7 +286,8 @@ def main() -> None:
             }
             # Strings may themselves hold {{root}}, {{href_*}}…
             ctx |= {f"t.{k}": render(v, ctx) for k, v in raw.items()}
-            ctx["main"] = render((TEMPLATES / f"{name}.html").read_text(), ctx)
+            template = page_ctx.get("template", name)
+            ctx["main"] = render((TEMPLATES / f"{template}.html").read_text(), ctx)
             ctx["back_bar"] = render(ctx["back_bar"], ctx)
             ctx["footer"] = render(ctx["footer"], ctx)
             out = OUT / path / "index.html"

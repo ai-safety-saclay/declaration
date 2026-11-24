@@ -23,7 +23,7 @@ h1, h2 { font-family: "Source Serif 4", Georgia, serif; }
 /* Header */
 header {
   text-align: center;
-  padding: 4rem 1.5rem 0;
+  padding: 3rem 1.5rem 0;
 }
 
 /* Two columns: statement left, signatories right; stacked on mobile. */
@@ -196,7 +196,7 @@ header h1 {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 400;
   line-height: 1.15;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.5rem;
   max-width: 28ch;
   text-wrap: balance;
 }
@@ -271,6 +271,7 @@ html { scroll-behavior: smooth; }
   gap: 1.5rem 1.25rem;
   margin: 2rem 0 0;
 }
+.logos a { display: block; line-height: 0; }
 .logos img { height: 44px; width: auto; }
 /* The PIAF logo has built-in padding; compensate so it reads at the same size. */
 .logos img.padded { height: 64px; }
@@ -296,11 +297,17 @@ html { scroll-behavior: smooth; }
 header { position: relative; }
 .lang-switch {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 0.85rem;
-  color: var(--muted);
+  top: 0.75rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.4rem;
+  font-size: 1rem;
 }
-.lang-switch a { color: var(--muted); text-decoration: none; }
-.lang-switch a:hover { color: var(--ink); }
-.lang-switch a[aria-current] { color: var(--ink); font-weight: 600; }
+.lang-switch a {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--hairline);
+  color: var(--muted);
+  text-decoration: none;
+}
+.lang-switch a:hover { color: var(--ink); border-color: var(--ink); }
+.lang-switch a[aria-current] { color: #fff; background: var(--ink); border-color: var(--ink); font-weight: 600; }
