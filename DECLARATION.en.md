@@ -12,7 +12,7 @@ Today's AI systems are already uncovering thousands of previously unknown securi
 
 Research and higher education have a role to play. Each of us, at our own level, commits to educating ourselves and others about the safety challenges of AI, to supporting or conducting research on the evaluation, oversight, and alignment of AI systems, and to fostering this debate within our institutions.
 
-<a class="sign-button" href="#signature">Signer l’appel</a>
+<a class="sign-button" href="#signature">Sign the call</a>
 
 
 Sources:
