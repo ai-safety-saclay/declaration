@@ -1,6 +1,6 @@
 # Appel de Paris-Saclay pour encadrer l'IA de frontière
 
-Cet été, des IA de plusieurs grands laboratoires ont échappé à leur contrôle en piratant de véritables entreprises [^hacking], et même un site gouvernemental [^australie]. Depuis, les alertes se multiplient. Le 7, puis le 14 septembre, le Haut-Commissaire des Nations unies aux droits de l'homme avertissait que, faute d'une réglementation contraignante et de contrôle indépendant, l'IA menace « tous les droits humains » [^speech][^lettre]. Une semaine plus tard, plus de vingt chefs d'État et de gouvernement appelaient au contrôle des modèles d'IA de frontière [^control], et le Conseil de sécurité se saisissait de la question à l'initiative de la France [^csnu]. Le 9 novembre, la France et ses partenaires adoptaient l'Appel de Paris, signé par plus de quinze États et une dizaine d'entreprises d'IA, dont OpenAI, Anthropic et Mistral [^appel].
+Cet été, des IA de plusieurs grands laboratoires ont échappé à leur contrôle en piratant de véritables entreprises [^hacking], et même un site gouvernemental [^australie]. Depuis, les alertes se multiplient. Le 7, puis le 14 septembre, le Haut-Commissaire des Nations unies aux droits de l'homme avertissait que, faute d'une réglementation contraignante et de contrôle indépendant, l'IA menace « tous les droits humains » [^speech][^lettre]. Une semaine plus tard, plus de vingt chefs d'État et de gouvernement appelaient au contrôle des modèles d'IA de frontière [^control], et le Conseil de sécurité se saisissait de la question à l'initiative de la France [^ONU]. Le 9 novembre, la France et ses partenaires adoptaient l'Appel de Paris, signé par plus de quinze États et une dizaine d'entreprises d'IA, dont OpenAI, Anthropic et Mistral [^appel].
 
 Les IA actuelles découvrent déjà des milliers de failles de sécurité inconnues [^cyber], bouleversent les mathématiques [^maths] et menacent de nombreux métiers [^métiers]. Les risques à venir sont plus graves encore : cyberattaques généralisées, bioterrorisme, perte de contrôle sur les systèmes d'IA eux-mêmes [^report]. Le développement de l'IA, déjà extrêmement rapide, ne fait qu'accélérer [^horizon], et l'IA elle-même contribue de plus en plus à cette accélération [^rsi]. Décider des risques acceptables ne peut revenir à une poignée d'entreprises, mais doit relever d'un débat démocratique [^lettre]. Comme l'a dit Jean-Noël Barrot, ministre de l'Europe et des Affaires étrangères, devant le Conseil de sécurité le 23 septembre 2026 : « Comme l'atome alors, il revient à la communauté internationale de l'encadrer pour tirer le meilleur et conjurer le pire » [^barrot].
 
@@ -23,12 +23,12 @@ Sources:
 [^control]: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
 [^ONU]: https://press.un.org/fr/blog/cs16462
 [^appel]: https://www.elysee.fr/emmanuel-macron/2026/11/09/communique-reunion-ia-et-securite
-[^report]:  https://arxiv.org/pdf/2602.21012
-[^horizon]: https://metr.org/blog/2026-01-29-time-horizon-1-1/
-[^rsi]: https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/
 [^cyber]: https://www.anthropic.com/glasswing
 [^maths]: https://mathandai.org/
 [^métiers]: https://www.coface.com/fr/actualites-economie-conseils-d-experts/ia-et-emploi-quatre-ans-apres-le-lancement-de-chatgpt-les-offres-d-emploi-des-metiers-les-plus-exposes-decrochent
+[^report]:  https://arxiv.org/pdf/2602.21012
+[^horizon]: https://metr.org/blog/2026-01-29-time-horizon-1-1/
+[^rsi]: https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/
 [^barrot]: https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/agnu-discours-de-jean-noel-barrot-ministre-de-l-europe-et-des-affaires-etrangeres-lors-de-la-reunion
 [^redlines]: https://red-lines.ai/
 [^cesia]: https://cesia.org/fr/publications/ai-act-le-cesia-appelle-la-commission-a-exercer-ses-pouvoirs-des-le-2-aout/
