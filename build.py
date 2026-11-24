@@ -117,6 +117,15 @@ ROLES = {
 }
 normalise = lambda value: " ".join(value.replace("’", "'").casefold().split())
 ROLE_BY_VALUE = {normalise(v): key for key, values in ROLES.items() for v in values}
+# Order of the roles in the home page preview; roles not listed come last.
+PREVIEW_ORDER = ["head_of_institution", "researcher", "phd", "student", "engineer"]
+
+
+def preview_rank(s: dict) -> tuple[bool, int]:
+    """Featured signatories first, then by role in PREVIEW_ORDER."""
+    key = ROLE_BY_VALUE.get(normalise(s.get("role") or ""))
+    rank = PREVIEW_ORDER.index(key) if key in PREVIEW_ORDER else len(PREVIEW_ORDER)
+    return (not s.get("featured"), rank)
 
 
 def role_label(value: str, t: dict[str, str]) -> str:
@@ -240,13 +249,13 @@ def main() -> None:
         policy_title, policy = read_markdown(localized("CONFIDENTIALITE", lang))
         legal_title, legal = read_markdown(localized("MENTIONS-LEGALES", lang))
         raw = strings[lang]
-        list_items = lambda full: "\n".join(render_signatory(s, raw, full) for s in ordered)
+        list_items = lambda full, rows=ordered: "\n".join(render_signatory(s, raw, full) for s in rows)
 
         pages = {
             "home": {
                 "page_title": title,
                 "declaration": declaration,
-                "signatories": list_items(False),
+                "signatories": list_items(False, sorted(signatories, key=preview_rank)),
                 "footer": '<a href="{{href_privacy}}">{{t.privacy}}</a> · <a href="{{href_legal}}">{{t.legal}}</a>',
             },
             "signatories": {
