@@ -17,22 +17,22 @@ Research and higher education have a role to play. Each of us, at our own level,
 
 Sources:
 
-[^hacking]: https://labs.cloudsecurityalliance.org/research/csa-research-note-frontier-ai-models-hacking-real-systems-ev/
-[^australie]: https://www.pm.gov.au/media/press-conference-new-york
-[^speech]: https://www.ohchr.org/en/statements-and-speeches/2026/09/high-commissioner-turk-updates-human-rights-council-human-rights
-[^lettre]: https://www.ohchr.org/sites/default/files/documents/press/hc-2026-09-14-governance-of-ai.pdf
-[^frontiere]: that is, the most advanced models at any given time.
-[^control]: https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models
-[^ONU]: https://press.un.org/fr/blog/cs16462
-[^appel]: https://www.elysee.fr/emmanuel-macron/2026/11/09/communique-reunion-ia-et-securite
-[^cyber]: https://www.anthropic.com/glasswing
-[^maths]: https://mathandai.org/
-[^metiers]: https://www.coface.com/fr/actualites-economie-conseils-d-experts/ia-et-emploi-quatre-ans-apres-le-lancement-de-chatgpt-les-offres-d-emploi-des-metiers-les-plus-exposes-decrochent
-[^report]:  https://arxiv.org/pdf/2602.21012
-[^horizon]: https://metr.org/blog/2026-01-29-time-horizon-1-1/
-[^rsi]: https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/
-[^barrot]:Our translation, https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/agnu-discours-de-jean-noel-barrot-ministre-de-l-europe-et-des-affaires-etrangeres-lors-de-la-reunion
-[^redlines]: https://red-lines.ai/
-[^serious_incidents]: such as this summer's hacks.
-[^cesia]: https://cesia.org/fr/publications/ai-act-le-cesia-appelle-la-commission-a-exercer-ses-pouvoirs-des-le-2-aout/
-[^alignment]: ensuring that AI systems act in accordance with human intentions.
+[^hacking]: <https://labs.cloudsecurityalliance.org/research/csa-research-note-frontier-ai-models-hacking-real-systems-ev/>
+[^australie]: <https://www.pm.gov.au/media/press-conference-new-york>
+[^speech]: <https://www.ohchr.org/en/statements-and-speeches/2026/09/high-commissioner-turk-updates-human-rights-council-human-rights>
+[^lettre]: <https://www.ohchr.org/sites/default/files/documents/press/hc-2026-09-14-governance-of-ai.pdf>
+[^frontiere]: That is, the most advanced models at any given time.
+[^control]: <https://www.government.nl/documents/2026/09/22/a-call-for-control-of-frontier-ai-models>
+[^ONU]: <https://press.un.org/en/2026/sc16462.doc.htm>
+[^appel]: <https://www.elysee.fr/emmanuel-macron/2026/11/09/communique-reunion-ia-et-securite>
+[^cyber]: <https://www.anthropic.com/glasswing>
+[^maths]: <https://mathandai.org/>
+[^metiers]: <https://www.coface.com/fr/actualites-economie-conseils-d-experts/ia-et-emploi-quatre-ans-apres-le-lancement-de-chatgpt-les-offres-d-emploi-des-metiers-les-plus-exposes-decrochent> (in French)
+[^report]: <https://arxiv.org/pdf/2602.21012>
+[^horizon]: <https://metr.org/blog/2026-01-29-time-horizon-1-1/>
+[^rsi]: <https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/>
+[^barrot]: Our translation. <https://www.diplomatie.gouv.fr/fr/presse-et-ressources/decouvrir-et-informer/actualites/agnu-discours-de-jean-noel-barrot-ministre-de-l-europe-et-des-affaires-etrangeres-lors-de-la-reunion> (in French)
+[^redlines]: <https://red-lines.ai/>
+[^serious_incidents]: Such as this summer's hacks.
+[^cesia]: <https://cesia.org/fr/publications/ai-act-le-cesia-appelle-la-commission-a-exercer-ses-pouvoirs-des-le-2-aout/> (in French)
+[^alignment]: Ensuring that AI systems act in accordance with human intentions.
