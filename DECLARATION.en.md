@@ -34,8 +34,6 @@ Sources:
 [^redlines]: <https://red-lines.ai/>
 [^cesia]: <https://cesia.org/fr/publications/ai-act-le-cesia-appelle-la-commission-a-exercer-ses-pouvoirs-des-le-2-aout/> (in French)
 
-Defs:
-
 [^def_frontiere]: That is, the most advanced models at any given time.
 [^def_serious_incidents]: Such as this summer's hacks.
 [^def_alignment]: Ensuring that AI systems act in accordance with human intentions.
