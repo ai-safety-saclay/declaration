@@ -33,8 +33,6 @@ Sources :
 [^redlines]: <https://red-lines.ai/>
 [^cesia]: <https://cesia.org/fr/publications/ai-act-le-cesia-appelle-la-commission-a-exercer-ses-pouvoirs-des-le-2-aout/>
 
-Defs :
-
 [^def_frontiere]: C'est-à-dire les plus avancés du moment.
 [^def_incidents]: Comme les piratages de cet été.
 [^def_alignement]: Pour que les systèmes d'IA agissent conformément aux intentions humaines.
