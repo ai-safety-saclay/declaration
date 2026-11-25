@@ -329,7 +329,7 @@ def main() -> None:
     strings = tomllib.loads((ROOT / "strings.toml").read_text())
     signatories = load_signatories()
     # Notable signatories first; sort is stable so the API order is kept otherwise.
-    ordered = sorted(signatories, key=lambda s: (not s.get("featured"), not s.get("institution")))
+    ordered = sorted(signatories, key=preview_rank)
     now = datetime.now(timezone.utc)
     base = (TEMPLATES / "base.html").read_text()
 
