@@ -18,6 +18,12 @@ body {
 
 a { color: var(--accent); }
 
+a[href^="#fn:def_"] {
+  background: transparent;
+  border: 1px solid currentColor;
+  font-style: italic;
+}
+
 h1, h2 { font-family: "Source Serif 4", Georgia, serif; }
 
 /* Header */
