@@ -32,6 +32,17 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="{{root}}style.css">
 </head>
+<script>
+  // Au survol d'un appel de note, afficher le contenu de la note.
+  document.querySelectorAll('a.footnote-ref').forEach(a => {
+    const id = decodeURIComponent(a.getAttribute('href').slice(1));
+    const note = document.getElementById(id);
+    if (!note) return;
+    const copy = note.cloneNode(true);
+    copy.querySelectorAll('.footnote-backref').forEach(b => b.remove());
+    a.title = copy.textContent.trim();
+  });
+</script>
 <body>
   <div class="topbar">
     {{back_bar}}
