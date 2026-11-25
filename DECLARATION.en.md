@@ -15,7 +15,7 @@ Research and higher education have a role to play. Each of us, at our own level,
 <a class="sign-button" href="#signature">Sign the call</a>
 
 
-Sources:
+Sources & Commentaries:
 
 [^hacking]: <https://labs.cloudsecurityalliance.org/research/csa-research-note-frontier-ai-models-hacking-real-systems-ev/>
 [^australie]: <https://www.pm.gov.au/media/press-conference-new-york>
