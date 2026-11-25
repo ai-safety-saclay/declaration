@@ -33,14 +33,14 @@
   <link rel="stylesheet" href="{{root}}style.css">
 </head>
 <script>
-  // Au survol d'un appel de note, afficher le contenu de la note.
-  document.querySelectorAll('a.footnote-ref').forEach(a => {
-    const id = decodeURIComponent(a.getAttribute('href').slice(1));
-    const note = document.getElementById(id);
-    if (!note) return;
-    const copy = note.cloneNode(true);
-    copy.querySelectorAll('.footnote-backref').forEach(b => b.remove());
-    a.title = copy.textContent.trim();
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href^="#fn:"]').forEach(a => {
+      const note = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+      if (!note) return;
+      const copy = note.cloneNode(true);
+      copy.querySelectorAll('a[href^="#fnref"]').forEach(b => b.remove());
+      a.title = copy.textContent.trim();
+    });
   });
 </script>
 <body>
