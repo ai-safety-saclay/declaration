@@ -18,11 +18,19 @@ body {
 
 a { color: var(--accent); }
 
-a[href^="#fn:def_"] {
-  background: transparent;
-  border: 1px solid currentColor;
-  font-style: italic;
+/* Notes explicatives : « ? » à la place du numéro */
+.footnote-ref[href^="#fn:def_"] {
+  position: relative;
+  color: transparent;
 }
+.footnote-ref[href^="#fn:def_"]::after {
+  content: "?";
+  position: absolute;
+  inset: 0;
+  color: var(--accent);
+}
+.footnote-ref[href^="#fn:def_"]:hover { color: transparent; }
+.footnote-ref[href^="#fn:def_"]:hover::after { color: #fff; }
 
 h1, h2 { font-family: "Source Serif 4", Georgia, serif; }
 
