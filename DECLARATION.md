@@ -14,7 +14,7 @@ La recherche et l'enseignement supérieur ont un rôle à jouer. Chacune et chac
 
 <a class="sign-button" href="#signature">Signer l’appel</a>
 
-Sources :
+Sources & Commentaires :
 
 [^hacking]: <https://labs.cloudsecurityalliance.org/research/csa-research-note-frontier-ai-models-hacking-real-systems-ev/>
 [^australie]: <https://www.pm.gov.au/media/press-conference-new-york>
