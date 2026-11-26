@@ -8,7 +8,7 @@
 description = "Appel de directeurs d'établissements, chercheurs, enseignants et étudiants pour encadrer l'IA de frontière : lignes rouges, transparence, recherche en sûreté."
 # Proca widget path: https://widget.proca.app/d/<widget>
 widget = "ai_piaf_2026/fr"
-date_format = "%d/%m/%Y %H:%M UTC"
+date_format = "%d/%m/%Y %H:%M (heure de Paris)"
 quote_open = "« "
 quote_close = " »"
 back = "← Retour à la déclaration"
@@ -48,7 +48,7 @@ role_other = ""
 [en]
 description = "Call from heads of institutions, researchers, faculty and students to regulate frontier AI: red lines, transparency and safety research."
 widget = "ai_piaf_2026/piaf/en"
-date_format = "%Y-%m-%d %H:%M UTC"
+date_format = "%Y-%m-%d %H:%M (Paris Time)"
 quote_open = "“"
 quote_close = "”"
 back = "← Back to the call"
