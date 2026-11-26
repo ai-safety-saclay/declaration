@@ -306,14 +306,6 @@ html { scroll-behavior: smooth; }
 /* FR · EN switch, top right of the header. */
 header { position: relative; }
 .lang-switch {
-  position: absolute;
-  top: 0.75rem;
-  right: 1rem;
-  display: flex;
-  gap: 0.3rem;
-  font-size: 0.8rem;
-}
-.lang-switch {
   display: flex;
   justify-content: center;
   gap: 1.25rem;
