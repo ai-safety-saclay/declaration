@@ -29,6 +29,7 @@ import unicodedata
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import markdown
 
@@ -330,7 +331,7 @@ def main() -> None:
     signatories = load_signatories()
     # Notable signatories first; sort is stable so the API order is kept otherwise.
     ordered = sorted(signatories, key=preview_rank)
-    now = datetime.now(timezone.utc)
+    now = datetime.now(ZoneInfo("Europe/Paris"))
     base = (TEMPLATES / "base.html").read_text()
 
     shutil.rmtree(OUT, ignore_errors=True)
