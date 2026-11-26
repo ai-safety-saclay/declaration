@@ -313,14 +313,26 @@ header { position: relative; }
   gap: 0.3rem;
   font-size: 0.8rem;
 }
+.lang-switch {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0 0 1.25rem;
+  font-family: Inter, sans-serif;
+  font-size: 0.9rem;
+}
 .lang-switch a {
-  padding: 0.28rem 0.64rem;
-  border: 1px solid var(--hairline);
   color: var(--muted);
   text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
 }
-.lang-switch a:hover { color: var(--ink); border-color: var(--ink); }
-.lang-switch a[aria-current] { color: #fff; background: var(--ink); border-color: var(--ink); font-weight: 600; }
+.lang-switch a:hover,
+.lang-switch a[aria-current],
+.lang-switch a.current {
+  color: inherit;
+  border-bottom-color: currentColor;
+}
 
 /* Proca widget: the "check your e-mail" alert shown after signing is too
    faint by default. The widget draws it in this page (no iframe), so its
