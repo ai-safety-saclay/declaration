@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "0 * * * *" # every hour (UTC); GitHub may delay runs a bit
+    # Every hour (UTC), at an odd minute: GitHub drops many scheduled runs at
+    # the top of the hour, when most repositories fire theirs.
+    - cron: "54 * * * *"
   workflow_dispatch:
 
 permissions:
