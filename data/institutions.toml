@@ -99,6 +99,8 @@
 "mines-albi.fr" = "IMT Mines Albi"
 "emse.fr" = "Mines Saint-Étienne"
 "mines-stetienne.fr" = "Mines Saint-Étienne"
+"imt-lille-douai.fr" = "IMT Nord Europe"
+"imt-bs.eu" = "Institut Mines-Télécom Business School"
 
 # --- Autres écoles d'ingénieurs ---
 "isae-supaero.fr" = "ISAE-SUPAERO"
@@ -116,6 +118,7 @@
 "utbm.fr" = "UTBM"
 "eurecom.fr" = "EURECOM"
 "ensai.fr" = "ENSAI"
+"efrei.net" = "EFREI"
 
 # --- ENS hors Paris ---
 "ens-lyon.fr" = "ENS de Lyon"
@@ -156,6 +159,10 @@
 "unilim.fr" = "Université de Limoges"
 "univ-avignon.fr" = "Avignon Université"
 "etud.univ-jfc.fr" = "Université Jean-François Champollion"
+"univ-ubs.fr" = "Université Bretagne Sud"
+"psl.eu" = "Université PSL"
+"ephe.psl.eu" = "EPHE"
+
 
 # --- Sciences politiques, administration, sciences sociales ---
 "insp.gouv.fr" = "INSP"                                   # ex-ENA, à vérifier
@@ -191,6 +198,7 @@
 "ird.fr" = "IRD"
 "ifremer.fr" = "Ifremer"
 "cnes.fr" = "CNES"
+"irit.fr" = "IRIT"
 
 # --- Écoles de commerce (hors IdF déjà listées) ---
 "edhec.edu" = "EDHEC"
@@ -212,7 +220,9 @@
 "uclouvain.be" = "UCLouvain"
 "ulb.be" = "ULB"
 "kuleuven.be" = "KU Leuven"
+"tue.ellis.eu" = "ELLIS Institute Tübingen"
 "tum.de" = "TU Munich"
+"tcd.ie" = "Trinity College Dublin"
 "mpg.de" = "Max Planck Society"
 "uva.nl" = "University of Amsterdam"
 "mila.quebec" = "Mila"
@@ -223,6 +233,7 @@
 "harvard.edu" = "Harvard University"
 "stanford.edu" = "Stanford University"
 "berkeley.edu" = "UC Berkeley"
+"uit.edu.vn" = "University of Information Technology (Hô Chi Minh-Ville)"
 "cmu.edu" = "Carnegie Mellon University"
 "princeton.edu" = "Princeton University"
 "nyu.edu" = "NYU"
